@@ -93,7 +93,13 @@ node launch_one_simulator.js
 
 ### Launching all simulators in your system
 
-This is a pretty impressive programmatic demo.
+This is a pretty impressive programmatic demo that will start all simulators from the command line.
+
+Then, you can close all of them by either closing their individual windows, or by pressing Control+C in the terminal, which is *way more cool*!
+
+```bash
+node launch_all_simulators.js
+```
 
 ### Reloading CSS in a simulator
 

@@ -79,17 +79,36 @@ Once your environment is set up for demoing, it tends to be really stable! Crash
 
 ### Introduction / Setup
 
-Clone one of the modules you would like to demo (git clone ...). Then cd to the directory of the newly cloned repository and run 
+This content kit comes with *batteries included* and so it has a bunch of examples that demonstrate both the functionalities and how to get the modules working together. You don't need to clone anything else to demo, just run `npm install` after cloning this repository, and go to the `demos` folder to get started.
+
+### Launching one simulator
+
+It will just open the first simulator in your system.
+
+You can close it by pressing Control+C in your terminal, or by closing the simulator window itself.
 
 ```bash
-npm install
+node launch_one_simulator.js
 ```
 
-Each module comes with one or more working examples, in the `examples` folder per repo. Change to the folder and pick the script you'd like to execute. Generally it's just a matter of running it with node. Suppose there is an `usage.js` script we want to run, you'd execute it with the following:
+### Launching all simulators in your system
 
-```bash
-node usage.js
-```
+This is a pretty impressive programmatic demo.
+
+### Reloading CSS in a simulator
+
+### Pushing to and launching an app in all connected devices
+
+#### Demoing node-firefox individual modules
+
+Each `node-firefox` module comes with one or more working examples, in the `examples` folder. Before running any example, you need to make sure all dependencies have been installed. The general process is:
+
+1. Clone the module
+2. `cd` to the module folder
+3. Install dependencies: run `npm install`, wait for it to do its magic.
+4. Run demos! `cd examples`, then suppose there is an `usage.js` script we want to run, you'd execute it with the following: `node usage.js`
+
+
 
 ## Frequently Asked Questions (FAQs)
 
@@ -101,4 +120,4 @@ If you find there's something you'd like to do but is not listed there, you shou
 
 ### What about debugging?
 
-You should use WebIDE to connect to the runtime you want to debug. There is no module for debugging, and no plans to support that--the DevTools debugger is infinitely better. You should be able to start a simulator from the command line *and* connecting to it via WebIDE--access is not exclusive to the way that started it.
+You should use WebIDE to connect to the runtime you want to debug. There is no module for debugging, and no plans to support that--the DevTools debugger is infinitely better. You should be able to start a simulator from the command line *and* connect to it via WebIDE--access is not exclusive to the way that started it.

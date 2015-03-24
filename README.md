@@ -105,6 +105,14 @@ node launch_all_simulators.js
 
 ### Pushing to and launching an app in all connected devices
 
+Connect as many phones as you can to your computer (using a USB hub is great for this demo so you can increase the number of ports in your system) and then run the following:
+
+```bash
+node push_and_launch_to_all_devices.js
+```
+
+A sample app will be installed to and then launched in all the devices.
+
 #### Demoing node-firefox individual modules
 
 Each `node-firefox` module comes with one or more working examples, in the `examples` folder. Before running any example, you need to make sure all dependencies have been installed. The general process is:

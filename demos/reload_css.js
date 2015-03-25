@@ -12,8 +12,20 @@ var appPath = path.join(__dirname, '..', 'node_modules', 'sample-packaged-app');
 var cssDir = 'css';
 
 // TODO: err... this should be ran per simulator!
-findSimulators()
-	.then(startAndConnect)
+findSimulators().then(function(simulators) {
+	simulators.forEach(function(simulator) {
+		return startAndConnect(simulator)
+			.then(holdOnASecond)
+			.then(pushTheApp)
+			.then(holdOnASecond)
+			.then(launchTheApp)
+			.then(watchForChanges)
+			/*.catch(function(horror) {
+				console.error(horror);
+			});*/
+	});
+});
+	/*.then(startAndConnect)
 	.then(holdOnASecond)
 	.then(pushTheApp)
 	.then(holdOnASecond)
@@ -21,10 +33,10 @@ findSimulators()
 	.then(watchForChanges)
 	.catch(function(horror) {
 		console.error(horror);
-	});
+	});*/
 
 function startAndConnect(simulator) {
-	return startSimulator()
+	return startSimulator(simulator)
 		.then(function(simulator) {
 			return connect(simulator.port);
 		});

@@ -101,8 +101,6 @@ Then, you can close all of them by either closing their individual windows, or b
 node launch_all_simulators.js
 ```
 
-#### Reloading CSS in a simulator
-
 #### Pushing to and launching an app in all connected devices
 
 Connect as many phones as you can to your computer (using a USB hub is great for this demo so you can increase the number of ports in your system) and then run the following:
@@ -113,7 +111,25 @@ node push_and_launch_to_all_devices.js
 
 A sample app will be installed to and then launched in all the devices.
 
-### Demoing node-firefox individual modules
+#### Reloading CSS in a simulator
+
+While we can programmatically push packaged apps to Firefox OS targets, this is not ideal when you're developing the UI of an application. Oftentimes you might want to experiment with different CSS values and see how they look like in the current context of the app.
+
+Thankfully, the stylesheets of a Firefox runtime can be live reloaded, without having to push and restart the app. You can do that interactively using the Style inspector in Firefox Devtools, or using the reload-css module in node-firefox. To demonstrate the latter, run the following:
+
+```bash
+node reload_css.js
+```
+
+All the simulators in your system will be launched and a sample app will be pushed and launched. You will probably need to arrange the simulators so you can see them all at the same time (apparently their window is always positioned in the same spot when launching).
+
+Once all the windows are in place and the app launched, you can open the style sheet file for the sample app that was installed and launched in the simulators, edit and save it, and see the changes happen instantly in the simulators. For example, try changing the `<main>` element background colour to `#fff`. 
+
+Except there is a bug on 2.1 and 2.2 simulators and nothing will happen in those simulators. For more info and tracking the bug, refer to the section 'Demoing: things that are broken'.
+
+Sorry about that :-(
+
+### Demoing `node-firefox` individual modules
 
 Alternatively you might want to focus on an specific `node-firefox` module, perhaps if you are interested in highlighting a particular area.
 

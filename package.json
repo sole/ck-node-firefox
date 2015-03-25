@@ -21,6 +21,7 @@
   },
   "homepage": "https://github.com/sole/ck-node-firefox",
   "dependencies": {
+    "chokidar": "^1.0.0-rc4",
     "es6-promise": "^2.0.1",
     "node-firefox-connect": "^1.1.0",
     "node-firefox-find-devices": "^1.0.0",
@@ -30,7 +31,6 @@
     "node-firefox-reload-css": "^1.1.1",
     "node-firefox-start-simulator": "^1.2.0",
     "push-app": "git+https://github.com/sole/push-app.git",
-    "sample-packaged-app": "git+https://github.com/sole/sample-packaged-app.git",
-    "watch": "^0.14.0"
+    "sample-packaged-app": "git+https://github.com/sole/sample-packaged-app.git"
   }
 }

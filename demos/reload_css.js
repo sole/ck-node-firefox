@@ -5,7 +5,7 @@ var startSimulator = require('node-firefox-start-simulator');
 var connect = require('node-firefox-connect');
 var launchApp = require('node-firefox-launch-app');
 var reloadCSS = require('node-firefox-reload-css');
-var watch = require('watch');
+var chokidar = require('chokidar');
 var pushApp = require('push-app');
 
 var appPath = path.join(__dirname, '..', 'node_modules', 'sample-packaged-app');
@@ -52,24 +52,22 @@ function launchTheApp(res) {
 }
 
 function watchForChanges(res) {
-	console.log(res);
 	console.log('watch');
 
 	var client = res.client;
 	var app = res.app;
 	var appCSSPath = path.join(appPath, cssDir);
 
-	watch.createMonitor(appCSSPath, function(monitor) {
-		monitor.on('changed', function(f, curr, prev) {
+	var watcher = chokidar.watch(appCSSPath, { persistent: true });
 
-			// TODO only reload *the changed* file
-			reloadCSS({
-				client: client,
-				app: app,
-				srcPath: appPath
-			});
-
+	watcher.on('change', function(p) {
+		console.log('changed', p);
+		reloadCSS({
+			client: client,
+			app: app,
+			srcPath: appPath
 		});
 	});
+
 }
 

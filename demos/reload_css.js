@@ -4,10 +4,14 @@ var findSimulators = require('node-firefox-find-simulators');
 var startSimulator = require('node-firefox-start-simulator');
 var connect = require('node-firefox-connect');
 var launchApp = require('node-firefox-launch-app');
+var reloadCSS = require('node-firefox-reload-css');
+var watch = require('watch');
 var pushApp = require('push-app');
 
 var appPath = path.join(__dirname, '..', 'node_modules', 'sample-packaged-app');
+var cssDir = 'css';
 
+// TODO: err... this should be ran per simulator!
 findSimulators()
 	.then(startAndConnect)
 	.then(holdOnASecond)
@@ -39,15 +43,33 @@ function pushTheApp(client) {
 }
 
 function launchTheApp(res) {
-	console.log('launch', res);
 	return launchApp({
 		manifestURL: res.app.manifestURL,
 		client: res.client
+	}).then(function() {
+		return Promise.resolve(res);
 	});
 }
 
 function watchForChanges(res) {
 	console.log(res);
 	console.log('watch');
+
+	var client = res.client;
+	var app = res.app;
+	var appCSSPath = path.join(appPath, cssDir);
+
+	watch.createMonitor(appCSSPath, function(monitor) {
+		monitor.on('changed', function(f, curr, prev) {
+
+			// TODO only reload *the changed* file
+			reloadCSS({
+				client: client,
+				app: app,
+				srcPath: appPath
+			});
+
+		});
+	});
 }
 

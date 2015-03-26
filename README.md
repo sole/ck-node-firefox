@@ -1,6 +1,6 @@
 # <tt>node-firefox</tt> Content Kit
 
-> Current as of 2015-03-xx
+> Current as of April 2015
 
 ## Introduction
 
@@ -54,14 +54,14 @@ If demoing on __actual hardware__ (Firefox OS devices):
 - [ ] Strategy for projecting your device's screen (USB webcam, document camera, etc.)
 - [ ] Correct USB cable for the device
 - [ ] Remote debugging enabled
-    - Firefox OS 2.3: Settings â†’ Developer â†’ Developer Tools â†’ Debugging via USB: ADB and DevTools
+    - Firefox OS 2.2: Settings - Developer - Developer Tools - Debugging via USB: ADB and DevTools
 - [ ] ADB installed and working. Running `adb devices` on a console when a phone is plugged in should result in the device being listed. If using Mac and Homebrew, you can install ADB with `brew install android-tools-adb`.
 
 ## Demoing: Things that are Broken
 
-### CSS reload on 2.1, 2.2 and 3.0 simulators doesn't work
+### CSS reload on the 3.0 simulator crashes it
 
-[A bug for 2.1 and 2.2](https://github.com/mozilla/node-firefox-reload-css/issues/1) and [a bug for 3.0](https://github.com/mozilla/node-firefox-reload-css/issues/5) are already filed.
+[A bug for 3.0](https://github.com/mozilla/node-firefox-reload-css/issues/5) is already filed.
 
 ### If demoing in a phone, you might want to disable the lock screen and ensure the screen is on
 
@@ -125,7 +125,7 @@ All the simulators in your system will be launched and a sample app will be push
 
 Once all the windows are in place and the app launched, you can open the style sheet file for the sample app that was installed and launched in the simulators, edit and save it, and see the changes happen instantly in the simulators. For example, try changing the `<main>` element background colour to `#fff`. 
 
-Except there is a bug on 2.1 and 2.2 simulators and nothing will happen in those simulators. And it will crash the 3.0 simulator. For more info and tracking the bugs, refer to the section 'Demoing: things that are broken'. Uninstalling the 3.0 simulator prior to this demo is also recommended as it seems very unstable right now.
+Except there is a bug 3.0 simulators and they will crash as soon as you try to reload css on them. For more info and tracking the bugs, refer to the section 'Demoing: things that are broken'. Uninstalling the 3.0 simulator prior to this demo is also recommended as it seems very unstable right now anyway.
 
 Sorry about that :-(
 

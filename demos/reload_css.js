@@ -11,7 +11,6 @@ var pushApp = require('push-app');
 var appPath = path.join(__dirname, '..', 'node_modules', 'sample-packaged-app');
 var cssDir = 'css';
 
-// TODO: err... this should be ran per simulator!
 findSimulators().then(function(simulators) {
 	simulators.forEach(function(simulator) {
 		return startAndConnect(simulator)
@@ -20,20 +19,9 @@ findSimulators().then(function(simulators) {
 			.then(holdOnASecond)
 			.then(launchTheApp)
 			.then(watchForChanges)
-			/*.catch(function(horror) {
-				console.error(horror);
-			});*/
 	});
 });
-	/*.then(startAndConnect)
-	.then(holdOnASecond)
-	.then(pushTheApp)
-	.then(holdOnASecond)
-	.then(launchTheApp)
-	.then(watchForChanges)
-	.catch(function(horror) {
-		console.error(horror);
-	});*/
+
 
 function startAndConnect(simulator) {
 	return startSimulator(simulator)
@@ -41,6 +29,7 @@ function startAndConnect(simulator) {
 			return connect(simulator.port);
 		});
 }
+
 
 function holdOnASecond(v) {
 	return new Promise(function(resolve) {
@@ -50,9 +39,11 @@ function holdOnASecond(v) {
 	});
 }
 
+
 function pushTheApp(client) {
 	return pushApp(client, appPath);
 }
+
 
 function launchTheApp(res) {
 	return launchApp({
@@ -62,6 +53,7 @@ function launchTheApp(res) {
 		return Promise.resolve(res);
 	});
 }
+
 
 function watchForChanges(res) {
 	console.log('watch');

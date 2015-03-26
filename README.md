@@ -59,9 +59,9 @@ If demoing on __actual hardware__ (Firefox OS devices):
 
 ## Demoing: Things that are Broken
 
-### CSS reload on 2.1 and 2.2 simulators doesn't work
+### CSS reload on 2.1, 2.2 and 3.0 simulators doesn't work
 
-[A bug](https://github.com/mozilla/node-firefox-reload-css/issues/1) is already filed.
+[A bug for 2.1 and 2.2](https://github.com/mozilla/node-firefox-reload-css/issues/1) and [a bug for 3.0](https://github.com/mozilla/node-firefox-reload-css/issues/5) are already filed.
 
 ### If demoing in a phone, you might want to disable the lock screen and ensure the screen is on
 
@@ -125,7 +125,7 @@ All the simulators in your system will be launched and a sample app will be push
 
 Once all the windows are in place and the app launched, you can open the style sheet file for the sample app that was installed and launched in the simulators, edit and save it, and see the changes happen instantly in the simulators. For example, try changing the `<main>` element background colour to `#fff`. 
 
-Except there is a bug on 2.1 and 2.2 simulators and nothing will happen in those simulators. For more info and tracking the bug, refer to the section 'Demoing: things that are broken'.
+Except there is a bug on 2.1 and 2.2 simulators and nothing will happen in those simulators. And it will crash the 3.0 simulator. For more info and tracking the bugs, refer to the section 'Demoing: things that are broken'. Uninstalling the 3.0 simulator prior to this demo is also recommended as it seems very unstable right now.
 
 Sorry about that :-(
 
@@ -139,8 +139,6 @@ Each module comes with one or more working examples, in the `examples` folder. B
 2. `cd` to the module folder
 3. Install dependencies: run `npm install`, wait for it to do its magic.
 4. Run demos! `cd examples`, then suppose there is an `usage.js` script we want to run, you'd execute it with the following: `node usage.js`
-
-
 
 ## Frequently Asked Questions (FAQs)
 

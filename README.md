@@ -1,6 +1,6 @@
 # <tt>node-firefox</tt> Content Kit
 
-> Current as of April 2015
+> Current as of July 2015
 
 ## Introduction
 

@@ -4,10 +4,10 @@
 
 ## Introduction
 
-* <tt>node-firefox</tt> is a series of node.js modules for interacting with Firefox runtimes via the Developer Tools remote debugging protocol
+* <tt>node-firefox</tt> is a series of node.js modules for interacting with Firefox runtimes via the Developer Tools remote debugging protocol, thus enabling integration with build systems and command line access to said runtimes.
+* Think a modularised, CLI version of Web IDE.
 * It is available as separate modules in npm and in their respective repositories. 
-* Started out as [node-fxos](https://github.com/nicola/node-fxos), a prototype developed by Nicola Greco when he was interning at Mozilla in Summer 2014
-* First public iteration as `node-firefox` presented at FOSDEM, February 2015, by Soledad Penadés who mentored Nicola, and then took over the project once he finished his internship
+* Currently there are 11 modules.
 
 ## Key Points
 
